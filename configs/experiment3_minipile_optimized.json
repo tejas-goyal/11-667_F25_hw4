@@ -1,0 +1,22 @@
+{   
+    "model_to_train": "models/GPTNeoX-160M-WikiText-512-flash-attention-2",
+    "output_dir": "models/experiment3-minipile-optimized",
+    "run_name": "experiment3-minipile-optimized",
+    "report_to": "wandb",
+    "eval_strategy": "steps",
+    "eval_steps": 250,
+    "logging_steps": 50,
+    "max_steps": 500,
+    "save_strategy": "no",
+    "bf16": true,
+    "seq_len": 2048,
+    "attention_type": "flash_attention_2",
+    "gradient_checkpointing": true,
+    "dataset": "minipile",
+    "deepspeed": null,
+    "per_device_train_batch_size": 16,
+    "learning_rate": 6e-4,
+    "weight_decay": 0.05,
+    "warmup_ratio": 0.05,
+    "lr_scheduler_type": "cosine"
+}
