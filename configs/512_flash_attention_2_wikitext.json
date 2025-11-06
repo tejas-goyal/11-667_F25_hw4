@@ -1,0 +1,21 @@
+{   
+    "model_to_train": "models/GPTNeoX-160m",
+    "output_dir": "models/GPTNeoX-160M-WikiText-512-flash-attention-2",
+    "run_name": "GPTNeoX-160M-WikiText-512-flash-attention-2",
+    "report_to": "wandb",
+    "eval_strategy": "epoch",
+    "logging_steps": 1,
+    "num_train_epochs": 1,
+    "save_strategy": "no",
+    "bf16": true,
+    "seq_len": 512,
+    "attention_type": "flash_attention_2",
+    "gradient_checkpointing": false,
+    "dataset": "wikitext",
+    "deepspeed": null,
+    "per_device_train_batch_size": 12,
+    "learning_rate": 6e-4,
+    "weight_decay": 0.1,
+    "warmup_ratio": 0.01,
+    "lr_scheduler_type": "cosine"
+}
