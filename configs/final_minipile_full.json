@@ -19,6 +19,6 @@
     "warmup_ratio": 0.01,
     "lr_scheduler_type": "cosine",
     "push_to_hub": true,
-    "hub_model_id": "tejas-goyal/gpt-neox-160m-minipile-2048",
+    "hub_model_id": "tejasgoyal/gpt-neox-160m-minipile-2048",
     "hub_strategy": "end"
 }
