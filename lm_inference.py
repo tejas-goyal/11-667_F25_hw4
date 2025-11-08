@@ -9,7 +9,7 @@ BATCH_SIZE = 4
 NEW_TOKENS = [5, 10, 50]
 REPEATS = 5
 
-model_id = ... #path to your model
+model_id = "tejas-goyal/gpt-neox-160m-minipile-2048" #path to your model
 
 def timed_generate_huggingface():
     tokenizer = AutoTokenizer.from_pretrained(model_id)
@@ -35,6 +35,7 @@ def timed_generate_huggingface():
         start_event.record()
         for _ in range(REPEATS):
             # TODO: implement model.generate() here
+            outputs = model.generate(**inputs, max_new_tokens=num_new_tokens, do_sample=False)
 
         end_event.record()
         torch.cuda.synchronize()
@@ -54,6 +55,7 @@ def timed_generate_vllm():
 
     for num_new_tokens in NEW_TOKENS:
         # TODO: implement sampling_params = SamplingParams() with the correct arguments
+        sampling_params = SamplingParams(temperature=0, max_tokens=num_new_tokens)
 
         start_event = torch.cuda.Event(enable_timing=True)
         end_event = torch.cuda.Event(enable_timing=True)
@@ -64,6 +66,7 @@ def timed_generate_vllm():
         start_event.record()
         for _ in range(REPEATS):
             # TODO: implement llm.generate() here
+            outputs = llm.generate(text, sampling_params)
         end_event.record()
         torch.cuda.synchronize()
 
