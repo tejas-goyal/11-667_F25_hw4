@@ -9,7 +9,7 @@ BATCH_SIZE = 4
 NEW_TOKENS = [5, 10, 50]
 REPEATS = 5
 
-model_id = "tejas-goyal/gpt-neox-160m-minipile-2048" #path to your model
+model_id = "tejasgoyal/gpt-neox-160m-minipile-2048" #path to your model
 
 def timed_generate_huggingface():
     tokenizer = AutoTokenizer.from_pretrained(model_id)
